@@ -83,4 +83,7 @@ end
   @test BSON.load(joinpath(@__DIR__, "test_41_from_64bit.bson")) == Dict(:obj => Dict("name"=>[0x01, 0x02]))
 end
 
+@testset "Custom tests" begin
+  @test BSON.load(joinpath(@__DIR__, "saved_on_64bit.bson"))[:a] == ones(Float32, 2, 2)
+end
 end
